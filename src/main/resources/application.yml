@@ -1,1 +1,28 @@
-spring.application.name=Back-End
+spring:
+  application:
+    name: Back-End
+  datasource:
+    url: jdbc:mysql://localhost:3306/scit?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 10
+      maximum-pool-size: 10
+      idle-timeout: 300000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  thymeleaf:
+    cache: false
+
+logging:
+  level:
+    root: info
