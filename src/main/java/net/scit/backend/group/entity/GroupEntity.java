@@ -1,4 +1,4 @@
-package net.scit.backend.group.Entity;
+package net.scit.backend.group.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

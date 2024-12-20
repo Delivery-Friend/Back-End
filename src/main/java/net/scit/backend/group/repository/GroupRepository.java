@@ -1,6 +1,6 @@
 package net.scit.backend.group.repository;
 
-import net.scit.backend.group.Entity.GroupEntity;
+import net.scit.backend.group.entity.GroupEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
