@@ -2,11 +2,12 @@ package net.scit.backend.group.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import net.scit.backend.member.entity.MemberEntity;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "group")
+@Table(name = "`group`")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -19,8 +20,8 @@ public class GroupEntity {
     @Column(name = "group_id")
     private Long id;
 
-    @Column(name = "member_id")
-    private MemberEntity member;
+    //@Column(name = "member_id")
+    //private MemberEntity member;
 
     private String groupName;
     private LocalDate createDate;
