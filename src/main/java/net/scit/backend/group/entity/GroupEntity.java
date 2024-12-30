@@ -2,6 +2,7 @@ package net.scit.backend.group.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import net.scit.backend.member.entity.MemberEntity;
 
 import java.time.LocalDate;
 
@@ -19,6 +20,7 @@ public class GroupEntity {
     @Column(name = "group_id")
     private Long id;
 
+    @ManyToOne
     @Column(name = "member_id")
     private MemberEntity member;
 
