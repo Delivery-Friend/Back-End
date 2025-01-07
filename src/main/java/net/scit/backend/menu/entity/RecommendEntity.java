@@ -7,12 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
-
-@Entity
-//@Table(name="")
-public class RecommendEntity {
-}
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Setter
+//@Getter
+//
+//@Entity
+////@Table(name="")
+//public class RecommendEntity {
+//}

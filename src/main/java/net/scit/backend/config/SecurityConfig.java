@@ -50,7 +50,7 @@ public class SecurityConfig {
         //경로별 인가 작업
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/members/signup").permitAll()
+                        .requestMatchers("/", "/members/signup", "/login").permitAll()
                         .anyRequest().authenticated());
 
         http
