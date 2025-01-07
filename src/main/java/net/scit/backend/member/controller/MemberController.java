@@ -17,5 +17,4 @@ public class MemberController {
         memberService.signup(memberDTO);
         return "ok";
     }
-
 }
