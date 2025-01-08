@@ -26,5 +26,6 @@ public class GroupEntity {
 
     @Column(name = "group_name")
     private String groupName;
+
     private LocalDate createDate;
 }
