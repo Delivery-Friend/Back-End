@@ -24,10 +24,6 @@ public class MemberServiceImpl implements MemberService {
 
         Boolean isExist = memberRepository.existsByEmail(email);
         if(isExist) {
-<<<<<<< HEAD
-=======
-
->>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
             return;
         }
 
