@@ -1,6 +1,7 @@
 package net.scit.backend.member.jwt;
 
 import io.jsonwebtoken.Jwts;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,7 @@ public class JWTUtil {
 
     private SecretKey secretKey;
 
-    public JWTUtil(@Value("${spring.jwt.secret}")String secret) {
+    public JWTUtil(@Value("${spring.jwt.secret}") String secret) {
 
         secretKey = new SecretKeySpec(secret.getBytes(StandardCharsets.UTF_8), Jwts.SIG.HS256.key().build().getAlgorithm());
     }
@@ -45,4 +46,14 @@ public class JWTUtil {
                 .compact();
     }
 
+    // 토큰 파싱 메서드
+    public String resolveToken(HttpServletRequest request) {
+        final String BEARER = "Bearer ";
+
+        String token = request.getHeader("Authorization");
+        if (token != null && token.startsWith(BEARER)) {
+            token = token.substring(BEARER.length()); // "Bearer " 이후의 토큰 값만 추출
+        }
+        return token;
+    }
 }

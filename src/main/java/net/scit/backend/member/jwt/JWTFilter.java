@@ -22,18 +22,18 @@ public class JWTFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        String authorization= request.getHeader("Authorization");
+        String token = jwtUtil.resolveToken(request);
 
-        if (authorization == null || !authorization.startsWith("Bearer ")) {
-
-            System.out.println("token null");
-            System.out.println(authorization);
-            filterChain.doFilter(request, response);
-
+        // 토큰이 필요한 경로에서 토큰이 없으면 401 Unauthorized 응답
+        if (token == null || token.isEmpty()) {
+            if (isProtectedPath(request)) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.getWriter().write("Token is missing");
+                return;
+            }
+            filterChain.doFilter(request, response); // 토큰이 필요없는 경로는 필터 진행
             return;
         }
-
-        String token = authorization.split(" ")[1];
 
         if (jwtUtil.isExpired(token)) {
 
@@ -59,5 +59,12 @@ public class JWTFilter extends OncePerRequestFilter {
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
         filterChain.doFilter(request, response);
+    }
+
+    // 토큰이 필요한 경로인지 체크하는 메서드
+    private boolean isProtectedPath(HttpServletRequest request) {
+        // 예를 들어, /members/signup, /members/login 경로는 토큰이 필요 없다고 판단
+        String path = request.getRequestURI();
+        return !(path.startsWith("/members/signup") || path.startsWith("/login"));
     }
 }
