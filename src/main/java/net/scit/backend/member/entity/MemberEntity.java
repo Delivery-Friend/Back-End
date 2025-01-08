@@ -15,7 +15,11 @@ public class MemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_id")
+<<<<<<< HEAD
     private Long id;
+=======
+    private Long memberId;
+>>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
 
     @Column(name="email", nullable = false)
     private String email;

@@ -1,5 +1,6 @@
 package net.scit.backend.group.service.impl;
 
+<<<<<<< HEAD
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import net.scit.backend.group.dto.MyGroupDTO;
@@ -58,4 +59,13 @@ public class GroupServiceImpl implements GroupService {
 
         return groupDTOPage;
     }
+=======
+import lombok.RequiredArgsConstructor;
+import net.scit.backend.group.service.GroupService;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class GroupServiceImpl implements GroupService {
+>>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
 }

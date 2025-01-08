@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package net.scit.backend.group.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,3 +27,17 @@ public class GroupController {
         return ResponseEntity.ok(groupList);
     }
 }
+=======
+package net.scit.backend.group.controller;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/group")
+@RequiredArgsConstructor
+public class GroupController {
+
+}
+>>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
