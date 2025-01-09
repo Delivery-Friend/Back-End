@@ -22,7 +22,6 @@ public class JWTFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-<<<<<<< HEAD
         String token = jwtUtil.resolveToken(request);
 
         // 토큰이 필요한 경로에서 토큰이 없으면 401 Unauthorized 응답
@@ -36,21 +35,6 @@ public class JWTFilter extends OncePerRequestFilter {
             return;
         }
 
-=======
-        String authorization= request.getHeader("Authorization");
-
-        if (authorization == null || !authorization.startsWith("Bearer ")) {
-
-            System.out.println("token null");
-            System.out.println(authorization);
-            filterChain.doFilter(request, response);
-
-            return;
-        }
-
-        String token = authorization.split(" ")[1];
-
->>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
         if (jwtUtil.isExpired(token)) {
 
             System.out.println("token expired");
@@ -76,7 +60,6 @@ public class JWTFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(request, response);
     }
-<<<<<<< HEAD
 
     // 토큰이 필요한 경로인지 체크하는 메서드
     private boolean isProtectedPath(HttpServletRequest request) {
@@ -84,6 +67,4 @@ public class JWTFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         return !(path.startsWith("/members/signup") || path.startsWith("/login"));
     }
-=======
->>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
 }

@@ -20,7 +20,6 @@ public class GroupEntity {
     @Column(name = "group_id")
     private Long id;
 
-<<<<<<< HEAD
     @ManyToOne
     @JoinColumn(name = "member_id")
     private MemberEntity member;
@@ -28,11 +27,5 @@ public class GroupEntity {
     @Column(name = "group_name")
     private String groupName;
 
-=======
-    //@Column(name = "member_id")
-    //private MemberEntity member;
-
-    private String groupName;
->>>>>>> c24b24be0d2d41e04033990e8fa3742db0bd74c0
     private LocalDate createDate;
 }
