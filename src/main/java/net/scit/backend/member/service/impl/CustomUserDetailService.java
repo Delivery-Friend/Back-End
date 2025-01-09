@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +21,10 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        MemberEntity userData = memberRepository.findByEmail(email);
-        if (userData != null) {
-
-            return new CustomUserDetails(userData);
+        Optional<MemberEntity> userData = memberRepository.findByEmail(email);
+        if (userData.isPresent()) {
+            MemberEntity member = userData.get();
+            return new CustomUserDetails(member);
         }
 
         return null;
