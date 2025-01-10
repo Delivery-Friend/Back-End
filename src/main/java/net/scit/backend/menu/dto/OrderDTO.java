@@ -1,6 +1,11 @@
 package net.scit.backend.menu.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import net.scit.backend.menu.entity.OrderEntity;
 
 import java.time.LocalDate;
@@ -25,8 +30,6 @@ public class OrderDTO {
                 .orderId(orderEntity.getOrderId())
                 .memberId(orderEntity.getMemberEntity().getMemberId())
                 .storeId(orderEntity.getStoreEntity().getStoreId())
-                .orderDate(orderEntity.getOrderDate())
-                .isGroup(orderEntity.getIsGroup())
-                .build();
+
     }
 }

@@ -30,8 +30,8 @@ public class MenuDTO {
     public static MenuDTO toDTO(MenuEntity menuEntity) {
         return MenuDTO.builder()
                 .menuId(menuEntity.getMenuId())
-                .foodId(menuEntity.getFoodEntity().getFoodId()) // null 확인 없이 사용
-                .orderId(menuEntity.getOrderEntity().getOrderId()) // null 확인 없이 사용
+                .foodId(menuEntity.getFoodEntity().getFoodId())
+                .orderId(menuEntity.getOrderEntity().getOrderId())
                 .menuName(menuEntity.getMenuName())
                 .price(menuEntity.getPrice())
                 .cnt(menuEntity.getCnt())
@@ -39,3 +39,4 @@ public class MenuDTO {
                 .build();
     }
 }
+

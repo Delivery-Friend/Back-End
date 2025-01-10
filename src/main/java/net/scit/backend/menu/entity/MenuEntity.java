@@ -1,5 +1,6 @@
 package net.scit.backend.menu.entity;
 
+
 import java.time.LocalDateTime;
 
 import net.scit.backend.menu.dto.MenuDTO;
@@ -30,7 +31,7 @@ import lombok.Setter;
 @Table(name = "menu")
 public class MenuEntity {
 
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_id")
     private Long menuId;
