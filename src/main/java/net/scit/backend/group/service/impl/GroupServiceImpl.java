@@ -2,6 +2,8 @@ package net.scit.backend.group.service.impl;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import net.scit.backend.exception.impl.GroupNotFoundException;
+import net.scit.backend.exception.impl.MemberNotFoundException;
 import net.scit.backend.group.dto.GroupDTO;
 import net.scit.backend.group.dto.MyGroupDTO;
 import net.scit.backend.group.entity.GroupEntity;
@@ -70,16 +72,14 @@ public class GroupServiceImpl implements GroupService {
 
         Optional<MemberEntity> byEmail = memberRepository.findByEmail(email);
         if (byEmail.isEmpty()) {
-            // 회원이 없다고 Exception
-            throw new RuntimeException("회원이 없습니다.");
+            throw new MemberNotFoundException();
         }
 
         MemberEntity member = byEmail.get();
         List<GroupMemberEntity> groupMemberEntities = groupMemberRepository.findAllByMemberId(member.getId());
 
         if (groupMemberEntities.isEmpty()) {
-            // CustomException 으로 수정하기
-            throw new RuntimeException("join group not found");
+            throw new GroupNotFoundException();
         }
 
         Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "lastAccessDate"));
