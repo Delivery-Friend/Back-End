@@ -1,6 +1,10 @@
 package net.scit.backend.menu.dto;
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import net.scit.backend.menu.entity.StoreEntity;
 
 @NoArgsConstructor
@@ -10,6 +14,7 @@ import net.scit.backend.menu.entity.StoreEntity;
 @ToString
 @Builder
 public class StoreDTO {
+  
     private Long storeId;
     private String storeName;
     private String storeAddress;

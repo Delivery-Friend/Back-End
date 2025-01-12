@@ -3,6 +3,7 @@ package net.scit.backend.menu.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import net.scit.backend.menu.dto.StoreDTO;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,10 +25,13 @@ public class StoreEntity {
     private String storeName;
 
     @Column(name="store_address")
-    private  String storeAddress;
+    private String storeAddress;
+
+    @OneToMany(mappedBy = "storeEntity", fetch = FetchType.LAZY)
+    private List<MenuEntity> menuEntities;
 
 
-    public static StoreEntity toEntity(StoreDTO storeDTO){
+    public static StoreEntity toEntity(StoreDTO storeDTO) {
         return StoreEntity.builder()
                 .storeId(storeDTO.getStoreId())
                 .storeName(storeDTO.getStoreName())
@@ -35,4 +39,3 @@ public class StoreEntity {
                 .build();
     }
 }
-
