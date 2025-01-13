@@ -44,12 +44,14 @@ public class JWTFilter extends OncePerRequestFilter {
         }
 
         String email = jwtUtil.getEmail(token);
+        String role = jwtUtil.getRole(token);
         String nickname = jwtUtil.getNickname(token);
 
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setEmail(email);
         memberEntity.setPassword("temppassword");
         memberEntity.setNickname(nickname);
+        memberEntity.setRole(role);
 
         CustomUserDetails customUserDetails = new CustomUserDetails(memberEntity);
 
@@ -65,6 +67,6 @@ public class JWTFilter extends OncePerRequestFilter {
     private boolean isProtectedPath(HttpServletRequest request) {
         // 예를 들어, /members/signup, /members/login 경로는 토큰이 필요 없다고 판단
         String path = request.getRequestURI();
-        return !(path.startsWith("/members/signup") || path.startsWith("/login"));
+        return !(path.startsWith("/members/signup") || path.startsWith("/members/login"));
     }
 }

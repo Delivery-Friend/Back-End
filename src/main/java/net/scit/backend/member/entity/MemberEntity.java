@@ -1,15 +1,18 @@
 package net.scit.backend.member.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="`member`")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MemberEntity {
 
     @Id
@@ -26,21 +29,33 @@ public class MemberEntity {
     @Column(name="nickname", nullable = false)
     private String nickname;
 
-//    @Column(name="profile_image")
-//    private String profileImage;
-//    @Column(name="introduction")
-//    private String introduction;
-//    @Column(name="auth")
-//    private Boolean auth;
-//    @Column(name="uuid")
-//    private String uuid;
-//    @Column(name="linkEmail")
-//    private String linkEmail;
-//    @Column(name="status")
-//    private String status;
-//    @Column(name="create_date")
-//    private LocalDate createDate;
-//    @Column(name="delete_date")
-//    private LocalDate deleteDate;
+    @Column(name="role")
+    @Builder.Default
+    private String role = "ROLE_USER";
+
+    @Column(name="profile_image")
+    private String profileImage;
+
+    @Column(name="introduction")
+    private String introduction;
+
+    @Column(name="auth")
+    private Boolean auth;
+
+    @Column(name="uuid")
+    private String uuid;
+
+    @Column(name="link_email")
+    private String linkEmail;
+
+    @Column(name="status")
+    private String status;
+
+    @Column(name="create_date")
+    @CreationTimestamp
+    private LocalDateTime createDate;
+
+    @Column(name="delete_date")
+    private LocalDateTime deleteDate;
 
 }
