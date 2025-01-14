@@ -31,6 +31,7 @@ public class MemberServiceImpl implements MemberService {
         data.setEmail(email);
         data.setPassword(bCryptPasswordEncoder.encode(password));
         data.setNickname(nickname);
+        data.setRole("ROLE_USER");
 
         memberRepository.save(data);
     }
