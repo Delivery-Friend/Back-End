@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface MemberService {
     public void signup(MemberDTO memberDTO);
+    public Boolean emailCheck(String email);
 }
