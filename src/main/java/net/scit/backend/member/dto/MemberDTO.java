@@ -13,13 +13,14 @@ public class MemberDTO {
     private String email;
     private String password;
     private String nickname;
-//    private String profileImage;
-//    private String introduction;
-//    private Boolean auth;
-//    private String uuid;
-//    private String linkEmail;
-//    private String status;
-//    private LocalDate createDate;
-//    private LocalDate deleteDate;
+    private String role;
+    private String profileImage;
+    private String introduction;
+    private Boolean auth;
+    private String uuid;
+    private String linkEmail;
+    private String status;
+    private LocalDate createDate;
+    private LocalDate deleteDate;
 
 }

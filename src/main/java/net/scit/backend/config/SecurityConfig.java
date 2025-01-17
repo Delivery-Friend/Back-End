@@ -40,7 +40,7 @@ public class SecurityConfig {
         http.httpBasic((auth) -> auth.disable());
 
         http.authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/", "/members/signup", "/members/login").permitAll()  // 경로 수정
+                .requestMatchers("/", "/members/signup", "/members/login", "/members/email-check").permitAll()  // 경로 수정
                 .requestMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated());
 

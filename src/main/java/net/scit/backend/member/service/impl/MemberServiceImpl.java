@@ -35,4 +35,10 @@ public class MemberServiceImpl implements MemberService {
 
         memberRepository.save(data);
     }
+
+    @Override
+    public Boolean emailCheck(String email) {
+        return !memberRepository.existsByEmail(email);
+    }
+
 }
